@@ -9,13 +9,32 @@
 import React from "react";
 
 function ReactStyling (){
-const date = new Date().getHours;
-// console.log(date);
-    return(
-<div>
 
-    <h1>{}Good morning</h1>
-</div>
+const date = new Date();
+const currentTime = date.getHours();
+let greetings = "";
+
+const customStyle = {
+    color: ""
+}
+
+if (currentTime < 12)
+{
+    greetings = "Good Morning ";
+    customStyle.color="red";
+}
+else if (currentTime < 18)
+{
+    greetings = "Good Afternoon ";
+    customStyle.color="green";
+}
+else {
+    greetings = "Good Night";
+    customStyle.color = "blue";
+}
+
+    return(
+    <h1 className="heading" style={customStyle}>{greetings}</h1>
     );
 }
 
